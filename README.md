@@ -6,6 +6,6 @@ TensorFlow: pip install tensorflow
 Numpy: pip install numpy
 Pandas: pip install pandas
 TkInter: pip install tkinter
-PIL: pip install pil
+PIL: pip install pillow
 
 Versão do Python: 3.11
