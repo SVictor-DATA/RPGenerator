@@ -53,7 +53,7 @@ def sample(preds, temperature=1.0):
     return np.argmax(np.random.multinomial(1, preds, 1))
 
 # Função para gerar nomes com comprimento variável
-def generate_name(model, start_seq, char_to_int, int_to_char, seq_length, min_length=5, max_length=6, temperature=2.5):
+def generate_name(model, start_seq, char_to_int, int_to_char, seq_length, min_length=5, max_length=6, temperature=1):
     name = start_seq
     name_length = random.randint(min_length, max_length)
     for _ in range(name_length):
@@ -101,7 +101,7 @@ def carregar_modelo_por_genero(genero):
     return carregar_ou_treinar_modelo(file_path, model_path)
 
 # Função para gerar um novo nome e retornar (aceita gênero como argumento)
-def gerar_e_retornar_nome(genero="Masculino", min_length=5, max_length=6, temperatura=2.5):
+def gerar_e_retornar_nome(genero="Masculino", min_length=5, max_length=6, temperatura=1):
     model, char_to_int, int_to_char, chars, names = carregar_modelo_por_genero(genero)
     start_seq = random.choice([name for name in names if len(name) >= 5])[:5]
     novo_nome = generate_name(model, start_seq, char_to_int, int_to_char, seq_length=5, min_length=min_length, max_length=max_length, temperature=temperatura)
