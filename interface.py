@@ -9,6 +9,7 @@ import historias as gh
 #Variaveis Globais
 nomegb = ""
 historiagb = ""
+genero_var = ""
 
 # Caminho para o diretório de imagens
 OUTPUT_PATH = Path(__file__).parent
@@ -168,7 +169,7 @@ def criar_personagem():
 
     global nomegb
     global historiagb
-    nome = tn.gerar_e_retornar_nome()
+    nome = tn.gerar_e_retornar_nome(genero='genero_var')
     nomegb = nome
     classe = cr.nomeclasse
     raca = cr.nomeraca
@@ -207,7 +208,8 @@ def criar_historia():
 
 #Função para o botão de recriar nome
 def recriar_nome():
-    nome = tn.gerar_e_retornar_nome()
+    global genero_var
+    nome = tn.gerar_e_retornar_nome(genero='genero_var')
     global nomegb
     global historiagb
     nomegb = nome
